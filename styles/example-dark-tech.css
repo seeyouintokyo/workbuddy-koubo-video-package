@@ -1,0 +1,12 @@
+/* 示例风格「深色科技」：深底、青色发光、圆角玻璃卡片。
+   只是示例，说明风格文件能改到什么程度。直接拿去用，你的视频会和别人一样；请按 references/style-profile.md 生成你自己的。 */
+:root{
+  --paper:#0E1116; --ink:#E8EDF2; --accent:#29D3C2; --accent-ink:#0E1116; --hot:#29D3C2; --mark:rgba(41,211,194,.28);
+  --muted:#8A94A3; --line:rgba(255,255,255,.04);
+  --font:"Source Han Sans","PingFang SC",sans-serif;
+  --font-display:"SF Pro Display","Source Han Sans",sans-serif; --display-weight:800;
+  --bw:1px; --radius:28px; --shadow:0 0 0 1px rgba(41,211,194,.25),0 24px 60px rgba(0,0,0,.5);
+  --sub-color:#FFFFFF; --sub-stroke:#000000;
+}
+.card,.row,.wire,.flow .st,.chip{background:rgba(255,255,255,.06)!important;color:var(--ink);backdrop-filter:blur(16px)}
+.bar{background:rgba(255,255,255,.08)}

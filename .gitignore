@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+node_modules/
+
+# 中间产物
+frames/
+*.mp4
+*.mov
+*.wav

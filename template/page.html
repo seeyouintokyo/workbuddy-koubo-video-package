@@ -1,0 +1,61 @@
+<!doctype html><html><head><meta charset="utf-8"><title>composition</title>
+<style>
+/* Neutral defaults. Your own look lives in a style file (theme.css) loaded after this block: see styles/README.md. */
+:root{--paper:#F4F4F2;--ink:#141414;--accent:#141414;--accent-ink:#FFFFFF;--hot:#141414;--mark:#DCDCD6;--muted:#6E6E6A;--line:rgba(20,20,20,.06);
+--font:"Source Han Sans","PingFang SC",sans-serif;--font-display:"Source Han Sans","PingFang SC",sans-serif;--display-weight:900;
+--bw:4px;--radius:24px;--shadow:0 18px 40px rgba(0,0,0,.14);--sub-color:#FFFFFF;--sub-stroke:#000000}
+*{box-sizing:border-box;margin:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--paper);font-family:var(--font);color:var(--ink)}
+#bg{position:absolute;inset:0;background:var(--paper);background-image:linear-gradient(var(--line) 2px,transparent 2px),linear-gradient(90deg,var(--line) 2px,transparent 2px);background-size:60px 60px}
+#person{position:absolute;overflow:hidden;z-index:3;background:#222}
+#person img{position:absolute;display:block;max-width:none}
+.scene{position:absolute;inset:0;visibility:hidden;z-index:2}
+.scene.top{z-index:4}
+#chapter{position:absolute;left:44px;top:128px;z-index:6;background:var(--ink);color:var(--paper);font-weight:800;font-size:38px;padding:8px 26px;border-radius:999px;letter-spacing:1px}
+#sub{position:absolute;left:30px;right:30px;top:1568px;text-align:center;z-index:7;font-weight:800;font-size:60px;line-height:1.2;color:var(--sub-color);text-shadow:0 0 3px var(--sub-stroke),0 3px 0 var(--sub-stroke),3px 0 0 var(--sub-stroke),-3px 0 0 var(--sub-stroke),0 -3px 0 var(--sub-stroke),3px 3px 0 var(--sub-stroke),-3px 3px 0 var(--sub-stroke),3px -3px 0 var(--sub-stroke),-3px -3px 0 var(--sub-stroke),0 8px 18px rgba(0,0,0,.45)}
+#sub.long{font-size:52px}
+#sub b{color:var(--accent-ink);background:var(--accent);padding:0 12px;border-radius:10px;text-shadow:none;font-weight:900;margin:0 3px}
+.big{font-family:var(--font-display);font-weight:var(--display-weight);line-height:1.05}
+.abs{position:absolute}
+.hero{position:absolute;left:40px;right:40px;top:210px;text-align:center;font-size:150px;color:#fff;text-shadow:0 6px 0 rgba(0,0,0,.85),0 0 30px rgba(0,0,0,.55)}
+.hero em{font-style:normal;color:var(--hot)}
+.chip{position:absolute;background:var(--accent);color:var(--accent-ink);font-weight:900;font-size:60px;padding:12px 34px;border-radius:calc(var(--radius) * .75);border:var(--bw) solid var(--ink);box-shadow:var(--shadow)}
+.row{position:absolute;left:60px;width:960px;display:flex;align-items:center;gap:34px;background:#fff;border:var(--bw) solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px 40px;font-size:82px;font-weight:900}
+.row i{font-style:normal;font-family:var(--font-display);background:var(--accent);color:var(--accent-ink);border:var(--bw) solid var(--ink);width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:66px;flex:none}
+.card{position:absolute;left:48px;width:984px;background:#fff;border:var(--bw) solid var(--ink);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.bar{height:62px;background:var(--ink);color:#fff;display:flex;align-items:center;padding:0 28px;font-size:30px;font-weight:700;gap:18px}
+.bar span{color:var(--hot)}
+.tag{position:absolute;font-size:30px;color:var(--muted);font-weight:700}
+.grid{position:absolute;left:48px;width:984px;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.grid img{width:100%;aspect-ratio:9/15;object-fit:cover;border-radius:14px;border:var(--bw) solid var(--ink);display:block}
+.mega{position:absolute;left:0;right:0;text-align:center;font-size:190px;color:var(--ink);text-shadow:0 0 34px var(--paper),0 0 34px var(--paper),0 0 60px var(--paper)}
+.mega em{font-style:normal;background:var(--accent);color:var(--accent-ink);padding:0 26px;border-radius:var(--radius);border:var(--bw) solid var(--ink);text-shadow:none}
+.quote{padding:44px 44px 38px;font-size:52px;line-height:1.42;font-weight:800}
+.doc{padding:36px 40px;font-family:Menlo,monospace;font-size:38px;line-height:1.5}
+.doc mark{background:transparent;color:inherit;padding:2px 6px;border-radius:6px;font-weight:800}
+.wire{position:absolute;top:640px;width:300px;height:500px;border:var(--bw) solid var(--ink);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow);overflow:hidden}
+.wire u{position:absolute;display:block;background:#D8D2C4;text-decoration:none}
+.wire s{position:absolute;display:block;background:var(--ink);text-decoration:none}
+.wl{position:absolute;top:1160px;width:300px;text-align:center;font-size:52px;font-weight:900}
+table.rank{width:100%;border-collapse:collapse;font-size:56px;font-weight:800}
+table.rank td{padding:30px 34px;border-top:var(--bw) solid var(--ink)}
+table.rank td:first-child{font-family:var(--font-display);font-size:72px;width:120px;text-align:center;background:var(--accent);color:var(--accent-ink)}
+.sign{position:absolute;left:0;right:0;margin:0 auto;width:fit-content;top:1250px;background:var(--ink);color:#fff;border-radius:var(--radius);padding:24px 50px;font-size:58px;font-weight:900;white-space:nowrap}
+.sign span{color:var(--mark)}
+#world{position:absolute;inset:0;transform-origin:50% 42%}
+#cut{position:absolute;overflow:hidden;z-index:5;pointer-events:none}
+#cut img{position:absolute;display:block;max-width:none}
+#front{position:absolute;inset:0;z-index:6}
+.fl{position:absolute;inset:0;visibility:hidden}
+#wipe{position:absolute;inset:0;z-index:8;background:var(--ink);visibility:hidden}
+#flash{position:absolute;inset:0;z-index:8;background:var(--paper);visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0}
+#fnum{font-size:640px;line-height:.95;color:var(--hot)}
+#fname{font-size:120px;font-weight:900;color:var(--ink);margin-top:10px}
+#sub{z-index:9}#chapter{z-index:9}
+.huge{position:absolute;left:0;right:0;text-align:center;color:#fff;text-shadow:0 8px 0 rgba(0,0,0,.28)}
+.huge em{font-style:normal;color:var(--mark)}
+</style>
+<!-- Your style file. Copy styles/neutral.css (or the one built for you) next to this page as theme.css. -->
+<link rel="stylesheet" href="theme.css"></head><body>
+<div id="world"><div id="bg"></div><div id="stage"></div><div id="person"><img id="pimg"></div><div id="cut"><img id="cimg"></div><div id="front"></div></div><div id="wipe"></div><div id="flash"><div id="fnum" class="big"></div><div id="fname"></div></div><div id="chapter"></div><div id="sub"></div>
+<script src="data.js"></script><script src="SKILL_TEMPLATE/core.js"></script><script src="scenes.js"></script><script src="SKILL_TEMPLATE/engine.js"></script></body></html>

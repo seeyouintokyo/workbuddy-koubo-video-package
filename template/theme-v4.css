@@ -1,0 +1,4 @@
+/* Punchy motion layer: bloom over hard cuts plus bilingual captions. Colours come from the theme variables. */
+#bloom{position:absolute;inset:0;z-index:8;pointer-events:none;opacity:0;background:radial-gradient(ellipse at 50% 45%,rgba(255,255,255,.98),rgba(255,255,255,.55) 55%,transparent 80%)}
+#sub .en{display:block;margin-top:10px;font-size:30px;font-weight:700;line-height:1.25;font-family:"SF Pro Text","Helvetica Neue",sans-serif;letter-spacing:.2px;text-shadow:0 0 2px var(--sub-stroke),0 2px 0 var(--sub-stroke),2px 0 0 var(--sub-stroke),-2px 0 0 var(--sub-stroke),0 -2px 0 var(--sub-stroke),0 4px 10px rgba(0,0,0,.4)}
+#person{box-shadow:none}

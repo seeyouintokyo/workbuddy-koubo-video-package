@@ -1,0 +1,19 @@
+/* 中性默认：黑白灰、细边、柔阴影。没有建立自己的风格时用它，只求干净，不代表任何人的风格。 */
+:root{
+  --paper:#F4F4F2;          /* 背景 */
+  --ink:#141414;            /* 主文字、边框 */
+  --accent:#141414;         /* 标签、字幕重点词的底色 */
+  --accent-ink:#FFFFFF;     /* accent 上面的字 */
+  --hot:#141414;            /* 大数字、章节号、强调字 */
+  --mark:#DCDCD6;           /* 荧光笔高亮、头像呼吸圈 */
+  --muted:#6E6E6A;
+  --line:rgba(20,20,20,.06);/* 背景网格线，不要网格就设成 transparent */
+  --font:"Source Han Sans","PingFang SC",sans-serif;
+  --font-display:"Source Han Sans","PingFang SC",sans-serif;
+  --display-weight:900;
+  --bw:4px;                 /* 卡片边框粗细，0 就是无边框 */
+  --radius:24px;
+  --shadow:0 18px 40px rgba(0,0,0,.14);
+  --sub-color:#FFFFFF;
+  --sub-stroke:#000000;
+}
